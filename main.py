@@ -5,7 +5,6 @@ import os
 
 def setup():
     os.system('cls' if os.name == 'nt' else 'clear')
-    print('\n Barometer begins...')
 
 
 def loop():
@@ -14,11 +13,11 @@ def loop():
         temp = sensor.read_temperature()  # Read temperature to veriable temp
         pressure = sensor.read_pressure()  # Read pressure to veriable pressure
 
-        print('      Barometer')
-        print('      Temperature = {0:0.2f} C'.format(temp))  # Print temperature
-        print('      Pressure = {0:0.2f} Pa'.format(pressure))  # Print pressure
+        print('Barometer')
+        print('Temperature = {0:0.2f} C'.format(temp))  # Print temperature
+        print('Pressure = {0:0.2f} Pa'.format(pressure))  # Print pressure
+        print('---------------------------------------------------------------------------------')
         time.sleep(10)
-        print('')
         os.system('cls' if os.name == 'nt' else 'clear')
 
 

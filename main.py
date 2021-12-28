@@ -1,16 +1,31 @@
-# This is a sample Python script.
-
-# Press ⌃R to execute it or replace it with your code.
-# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
+import Adafruit_BMP.BMP085 as BMP085
+import time
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press ⌘F8 to toggle the breakpoint.
+def setup():
+    print('\n Barometer begins...')
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+def loop():
+    while True:
+        sensor = BMP085.BMP085()
+        temp = sensor.read_temperature()  # Read temperature to veriable temp
+        pressure = sensor.read_pressure()  # Read pressure to veriable pressure
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+        print('')
+        print('      Temperature = {0:0.2f} C'.format(temp))  # Print temperature
+        print('      Pressure = {0:0.2f} Pa'.format(pressure))  # Print pressure
+        time.sleep(10)
+        print('')
+
+
+def destroy():
+    pass
+
+
+if __name__ == '__main__':  # Program start from here
+    setup()
+    try:
+        loop()
+    except KeyboardInterrupt:
+        destroy()

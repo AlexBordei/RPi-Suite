@@ -1,6 +1,7 @@
 import Adafruit_BMP.BMP085 as BMP085
 import time
 import os
+import dht11
 
 
 def setup():
@@ -9,6 +10,9 @@ def setup():
 
 def loop():
     while True:
+        # DHT11
+        dht11.print_dht11_dat()
+
         sensor = BMP085.BMP085()
         temp = sensor.read_temperature()  # Read temperature to veriable temp
         pressure = sensor.read_pressure()  # Read pressure to veriable pressure
@@ -22,6 +26,7 @@ def loop():
 
 
 def destroy():
+    print('Exiting...')
     pass
 
 
